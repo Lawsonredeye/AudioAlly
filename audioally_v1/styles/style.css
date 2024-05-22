@@ -33,6 +33,25 @@ main {
     margin: 50px;
 }
 
+.team figure img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+figure figcaption {
+    text-align: center;
+    font-weight: 400;
+    font-size: larger;
+}
+
+
 .fig img {
     width: 250px;
     height: 250px;
