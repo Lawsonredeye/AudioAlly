@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.navbar a {
+    font-size: 18px;
+    font-weight: 400;
+    /* color: white; */
+    text-decoration: none;
+}
+
+
+.team figure img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+figure figcaption {
+    text-align: center;
+    font-weight: 400;
+    font-size: larger;
+}
+
+h2, h1 {
+    text-align: center;
+    margin: 40px;
+}
+
+body {
+    font-family: "JetBrains Mono";
+}
+
+section {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+
