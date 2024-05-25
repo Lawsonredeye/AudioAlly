@@ -1,4 +1,7 @@
 /* Top Navigational bar / menu bar */
+ * {
+    margin: 0;
+ }
 
 .menu {
     overflow: hidden;
@@ -81,6 +84,7 @@ figure figcaption {
 
 .artist {
     text-decoration: underline;
+    margin: 40px;
 }
 
 /* featured images decoration */
@@ -185,4 +189,15 @@ button:hover {
 #overlay.active {
     opacity: 1;
     pointer-events: all;
+}
+
+.footer__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    font-weight: 100;
+    font-size: 12px;
+    margin-top: 25px;
+    background-color: #EEE5E9;
 }
