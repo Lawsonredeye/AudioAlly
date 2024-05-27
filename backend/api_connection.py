@@ -18,7 +18,7 @@ def create_connection():
     scope = 'playlist-modify-public'
 
     if client_id is None or client_secret is None:
-        return None
+        print('client id or client secret missing')
 
     auth = SpotifyOAuth(client_id=client_id,
                         client_secret=client_secret,
