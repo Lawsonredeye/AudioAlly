@@ -8,4 +8,4 @@ def get_genres(sp):
         sp: an instance of spotify connection """
     genres = sp.recommendation_genre_seeds()['genres']
 
-    return genres[:10]
+    return genres
