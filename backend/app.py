@@ -1,54 +1,54 @@
 #!/usr/bin/python3
-""" The Flask App and routes """
+""" The Flask App and all routes """
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 from api_connection import create_connection
-from get_dynamic_data import get_genres
+from operations import createPlaylist
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 
 sp = create_connection()
+
+
 @app.route('/')
 @app.route('/home', methods=['GET'])
 def index():
     """ the main page """
-    genres = get_genres(sp)
-    return render_template('index.html', genres=genres)
-
-
-@app.route('/login')
-def login():
-    """ will be used if we decide to use Auth-flow """
-    pass
-
-
-@app.route('/callback')
-def callback():
-    """ same as login route """
-    pass
+    return render_template('index.html')
 
 
 @app.route('/create_playlist', methods=['POST'])
 def create_playlist():
-    genre = request.form.getlist('genre')
-    return jsonify(genre)
+    """ a route used to create a playlist with the given data """
+    genres = request.form.getlist('genre')
+    playlist_name = request.form.get('playlist_name')
+    artist = request.form.get('fav-artist')
+    country = request.form.get('country-selector')
+
+    if len(genres) == 0 and len(artist) == 0:
+        return "<p> you need to select at least one genre or enter artist name </p>"
+
+    if playlist_name == '':
+        return "<p> playlist name must be given </p>"
 
 
-@app.route('/playlist_created')
-def playlist_created():
-    """ page to show the playlist link that has been created """
-    pass
+    playlist_link = createPlaylist(sp, playlist_name, genres, artist, country)
+    if playlist_link is None:
+        return "<h3>invalid option selected</h3>"
+    return "<p>link to your playlist <a href='{}'>here</a></p>".format(playlist_link)
 
 
-@app.route('/contact_us')
+@app.route('/contact_us', methods=['GET'])
 def contact_us():
+    """ route for contact us page """
     return render_template('contact.html')
 
 
-@app.route('/about')
+@app.route('/about', methods=['GET'])
 def about():
+    """ route for about page """
     return render_template('about.html')
 
 

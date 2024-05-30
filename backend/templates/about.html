@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About us</title>
-    <link rel="stylesheet" href="/styles/about.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/about.css') }}">
     <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
 </head>
 <body>
     <header class="header">
-        <a href="index.html">AudioAlly</a>
+        <a href="{{ url_for('index') }}">AudioAlly</a>
         <div class="divbar">
             <a href="#">About</a>
-            <a href="contact.html">Contact us</a>
+            <a href="{{ url_for('contact_us') }}">Contact us</a>
         </div>
     </header>
     <br>
@@ -36,15 +36,15 @@
         <h2>Meet The TEAM</h2>
         <div class="team">
             <figure>
-                <img src="img/Dev Abenet.jfif" alt="" loading="lazy">
+                <img src=" {{ url_for('static', filename='img/Dev Abenet.jfif') }}" alt="" loading="lazy">
                 <figcaption>Abenet Gebre<br>Backend-Engineer</figcaption>
             </figure>
             <figure>
-                <img src="img/curtis-potvin.jpg" alt="" loading="lazy">
+                <img src=" {{ url_for('static', filename='img/curtis-potvin.jpg') }}" alt="" loading="lazy">
                 <figcaption>Ezenagu Chinemerem<br>Backend-Engineer</figcaption>
             </figure>
             <figure>
-                <img src="img/Lawson_v1.jpg" alt="" loading="lazy">
+                <img src="{{ url_for('static', filename='img/Lawson_v1.jpg') }}" alt="" loading="lazy">
                 <figcaption>Lawson Omoregbee<br>Frontend-Engineer</figcaption>
             </figure>
         </div>

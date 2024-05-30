@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
     <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/country.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/country.css') }}">
     <title>AudioAlly</title>
 </head>
 <body>
     <header>
         <div class="menu">
             <a href="#">AudioAlly</a>
-            <a href="about.html">About</a>
+            <a href="{{ url_for('about')}}">About</a>
             <a href="{{ url_for('contact_us') }}">Contact us</a>
         </div>
     </header>
     <main>
         <section>
-            <h1>Audio Ally<img src="{{ url_for('static', filename='img/compact-disc-svgrepo-com.svg') }}" alt="disc" width="30" loading="lazy"></h1>
+            <h1>Audio Ally<img src="{{url_for('static', filename='img/compact-disc-svgrepo-com.svg') }}" alt="disc" width="30" loading="lazy"></h1>
             <div class="header-img">
 
                 <img src="{{ url_for('static', filename='img/tim-toomey.jpg') }}" alt="AudioAlly musician" class="ally-image" loading="lazy">
                 <div>
                     <p class="text">Your Ultimate Sound
-                        Sidekick... 
+                        Sidekick...
                         <br>Where Every Beat Finds It's Ally!
                     </p>
                     <div  class="generate">
@@ -39,27 +39,35 @@
         
                             <div class="modal-body" style="background-color: antiquewhite;">
                                 <form action="{{ url_for('create_playlist') }}" method="post">
-                                    <label for="fav-artist">Favorite Artist:</label>
-                                    <input type="text" id="fav-artist" name="fav-artist" placeholder="Drake .."><br>
+                                    <label for="fav-artist">Favorite Artists:</label>
+                                    <input type="text" id="fav-artist" name="fav-artist" placeholder="Drake, Lil Baby, Future..."><br>
                                     Select Genres <br>
-
-                                    {% for genre in genres %}
-                                        <input type="checkbox" name="genre" id="{{ genre }}" value="{{ genre }}">
-                                        <label for="genres">{{ genre }}</label><br>
-                                    {% endfor %}
-
-                                    <!-- <input type="checkbox" name="genre" id="rock" value="rock">
+                                    <input type="checkbox" name="genre" id="rock" value="rock">
                                     <label for="genres">Rock</label><br>
                                     <input type="checkbox" name="genre" id="pop" value="pop">
                                     <label for="genres">Pop</label><br>
-                                    <input type="checkbox" name="genre" id="rap" value="rap">
-                                    <label for="genres">Rap</label><br>
-                                    <input type="checkbox" name="genre" id="rnB" value="rnB">
-                                    <label for="genres">Rhythm and blues</label> <br>
+                                    <input type="checkbox" name="genre" id="hip-hop" value="hip-hop">
+                                    <label for="genres">Hip-Hop/Rap</label><br>
                                     <input type="checkbox" name="genre" id="afrobeat" value="afrobeat">
                                     <label for="genres">Afrobeats</label> <br>
-                                    <input type="checkbox" name="genre" id="highlife" value="highlife">
-                                    <label for="genres">Highlife</label><br> -->
+                                    <!-- more genres -->
+                                    <input type="checkbox" name="genre" id="country" value="country">
+                                    <label for="genres">Country</label><br>
+                                    <input type="checkbox" name="genre" id="reggae" value="reggae">
+                                    <label for="genres">Reggae</label><br>
+                                    <input type="checkbox" name="genre" id="k-pop" value="k-pop">
+                                    <label for="genres">K-pop</label><br>
+                                    <input type="checkbox" name="genre" id="latin" value="latin">
+                                    <label for="genres">Latin</label><br>
+                                    <input type="checkbox" name="genre" id="workout" value="workout">
+                                    <label for="genres">Workout</label><br>
+                                    <input type="checkbox" name="genre" id="party" value="party">
+                                    <label for="genres">Party</label><br>
+                                    <input type="checkbox" name="genre" id="sleep" value="sleep">
+                                    <label for="genres">Sleep</label><br>
+                                    <input type="checkbox" name="genre" id="travel" value="travel">
+                                    <label for="genres">Travel</label><br>
+
                                     <!-- Select country -->
                                     <select class="select__input" name="country-selector" id="country-selector" >
                                         <option value="0">Select Country</option>
@@ -309,10 +317,10 @@
                                         <option value="YE">Yemen 🇾🇪</option>
                                         <option value="ZM">Zambia 🇿🇲</option>
                                         <option value="ZW">Zimbabwe 🇿🇼</option>
-                                    </select>
+                                      </select>
                                     <br>
-                                    <label for="playlist_name" id="playlist_name" name="playlist_name">Playlist Name:</label>
-                                    <input type="text">
+                                    <label for="playlist_name" id="playlist_name">Playlist Name:</label>
+                                    <input type="text" name="playlist_name" required>
                                     <input type="submit" value="Generate Playlist" placeholder="UK Drill">
                                 </form>
                             </div>
@@ -348,5 +356,5 @@
         Copyright &copy;AudioAlly 2024
     </footer>
 </body>
-<script src=" {{ url_for('static', filename='js/script.js')}}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}" type="text/javascript"></script>
 </html>
