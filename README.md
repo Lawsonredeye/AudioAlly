@@ -22,7 +22,7 @@ CSS
 
 INSTALLATION GUIDE:
 
-1.  Clone the repository from GitHub: git clone https://github.com/your/repository.git
+1.  Clone the repository from GitHub: git clone https://github.com/Lawsonredeye/AudioAlly.git
 2.  Navigate to the project directory: cd Playlist-Recommender
 3.  Install dependencies using pip: pip install -r requirements.txt
 4.  Run the Flask application: python app.py
