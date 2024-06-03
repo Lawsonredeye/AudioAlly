@@ -27,17 +27,19 @@ def create_playlist():
     artist = request.form.get('fav-artist')
     country = request.form.get('country-selector')
 
-    if len(genres) == 0 and len(artist) == 0:
-        return "<p> you need to select at least one genre or enter artist name </p>"
-
     if playlist_name == '':
-        return "<p> playlist name must be given </p>"
-
+        return render_template('result.html',
+                               message="Playlist name must be given!")
+    if len(genres) == 0 and artist == '':
+        return render_template('result.html',
+                               message="Select at least one genre or give an artist!")
 
     playlist_link = createPlaylist(sp, playlist_name, genres, artist, country)
     if playlist_link is None:
-        return "<h3>invalid option selected</h3>"
-    return "<p>link to your playlist <a href='{}'>here</a></p>".format(playlist_link)
+        return render_template('result.html',
+                               message="Failed to create playlist!")
+    
+    return render_template('result.html', playlist_link=playlist_link)
 
 
 @app.route('/contact_us', methods=['GET'])

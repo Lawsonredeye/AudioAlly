@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/contact-us.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/contact-us.css') }}">
     <title>Contact Us</title>
 </head>
 <body>
     <header class="header">
-        <a href="index.html">AudioAlly</a>
+        <a href="{{ url_for('index') }}">AudioAlly</a>
         <nav class="divbar">
             <ul class="nav__links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact us</a></li>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact_us') }}">Contact us</a></li>
             </ul>
         </nav>
     </header>
