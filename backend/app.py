@@ -33,7 +33,7 @@ def create_playlist():
     if len(genres) == 0 and artist == '':
         return render_template('result.html',
                                message="Select at least one genre or give an artist!")
-
+    
     playlist_link = createPlaylist(sp, playlist_name, genres, artist, country)
     if playlist_link is None:
         return render_template('result.html',

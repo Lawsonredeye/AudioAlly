@@ -1,5 +1,4 @@
 """ Connection with the Spotify API created here """
-from os import getenv
 from spotipy import Spotify
 from spotipy import SpotifyOAuth
 
@@ -13,9 +12,10 @@ def create_connection():
             Spotify: A Spotify object representing the connection to the API.
             None: If the client ID or client secret is missing.
     """
-    client_id = getenv("AUDIOALLY_CI")
-    client_secret = getenv("AUDIOALLY_CS")
-    scope = 'playlist-modify-public'
+    client_id = '89b368e37fd248d283e4f74c36af401e'
+    client_secret = '93a15f50d72b4db9bcd1240d9340defd'
+    # scope = 'playlist-modify-public'
+    scope = 'user-read-private user-read-email playlist-modify-public playlist-modify-private playlist-read-collaborative playlist-read-private'
 
     if client_id is None or client_secret is None:
         print('client id or client secret missing')
